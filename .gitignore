@@ -1,0 +1,37 @@
+# .NET Core
+bin/
+obj/
+.vs/
+.vscode/
+.idea/
+.nuget/
+packages/
+
+# Archivos temporales de Visual Studio
+.vscode/
+secrets/
+logs/
+
+# Dependencias de Node.js (Frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Archivos generados por React
+dist/
+build/
+
+# Archivos del entorno de docker
+.docker/
+
+# Archivos de base de datos SQLite
+*.db
+
+# Archivos de migración de EF Core
+Migrations/
+
+# Archivos de test
+testresults/
+
+# Archivos de configuración local
+.env
