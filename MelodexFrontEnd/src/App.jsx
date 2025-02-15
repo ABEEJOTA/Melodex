@@ -1,10 +1,19 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useTestHook } from './hooks/useTestHook'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [weather, setWeather] = useState(null);
+  const {GetWeather} = useTestHook(setWeather);
+
+  useEffect(()=>{
+    GetWeather();
+    console.log("WEATHER", weather);
+  },[count])
 
   return (
     <>
@@ -21,11 +30,8 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <button onClick={() => setCount(0)}>
-          reset counter
-        </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
