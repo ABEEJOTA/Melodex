@@ -14,6 +14,9 @@ namespace Melodex.Infrastructure.Data
         public DbSet<Cassette> Cassette { get; set; }
         public DbSet<Collection> Collection { get; set; }
         public DbSet<Track> Track { get; set; }
+        public DbSet<Artist> Artist { get; set; }
+        public DbSet<PlayList> PlayList { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

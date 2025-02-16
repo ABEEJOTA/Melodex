@@ -7,15 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Mappers\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Melodex.Domain\Melodex.Domain.csproj" />
 		<ProjectReference Include="..\Melodex.Infrastructure\Melodex.Infrastructure.csproj" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
 	</ItemGroup>
 
 

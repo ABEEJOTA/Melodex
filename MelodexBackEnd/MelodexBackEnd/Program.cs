@@ -19,6 +19,9 @@ builder.Services.AddCors(p => p.AddPolicy("AllowAll", builder =>
 builder.Services.AddDbContext<MelodexDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
