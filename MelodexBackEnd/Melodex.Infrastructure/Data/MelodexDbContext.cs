@@ -22,60 +22,24 @@ namespace Melodex.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<MediaItem>()
-            //    .HasDiscriminator<string>("MediaType")
-            //    .HasValue<Vinyl>("Vinyl")
-            //    .HasValue<CD>("CD")
-            //    .HasValue<Cassette>("Cassette");
-
-            //// Configuración de herencia para MediaItem
-            //modelBuilder.Entity<MediaItem>()
-            //    .HasDiscriminator<MediaFormat>("Format")
-            //    .HasValue<Vinyl>(MediaFormat.Vinyl)
-            //    .HasValue<CD>(MediaFormat.CD)
-            //    .HasValue<Cassette>(MediaFormat.Cassette);
-
-
-            //modelBuilder.Entity<MediaItem>(b =>
-            //{
-            //    b.Property<int>("Format")
-            //        .HasColumnType("integer");
-
-            //    b.HasKey("Id");
-
-            //    b.ToTable("MediaItems");
-
-            //    // Configura el discriminador
-            //    b.HasDiscriminator<MediaFormat>("Format")
-            //        .HasValue<Vinyl>(MediaFormat.Vinyl)
-            //        .HasValue<CD>(MediaFormat.CD)
-            //        .HasValue<Cassette>(MediaFormat.Cassette);
-
-            //    b.UseTphMappingStrategy();
-            //});
-
-            // Relaciones de clave foránea
             modelBuilder.Entity<MediaItem>()
-                .HasOne(m => m.Artist)
-                .WithMany()
-                .HasForeignKey(m => m.ArtistId)
-                .OnDelete(DeleteBehavior.Cascade); // Eliminar medios si se elimina el artista
+                .HasKey(m => m.Id);
 
-            modelBuilder.Entity<Collection>()
-                .HasMany(c => c.MediaItems)
+            modelBuilder.Entity<Vinyl>()
+                .HasOne(v => v.MediaItem)
                 .WithOne()
-                .HasForeignKey("CollectionId");
+                .HasForeignKey<Vinyl>(v => v.MediaItemId);
 
-            modelBuilder.Entity<PlayList>()
-                .HasMany(p => p.Tracks)
+            modelBuilder.Entity<CD>()
+                .HasOne(c => c.MediaItem)
                 .WithOne()
-                .HasForeignKey(t => t.PlayListId);
+                .HasForeignKey<CD>(c => c.MediaItemId);
 
-            modelBuilder.Entity<Track>()
-                .HasOne(t => t.MediaItem)
-                .WithMany(m => m.Tracks)
-                .HasForeignKey(t => t.MediaItemId)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Cassette>()
+                .HasOne(c => c.MediaItem)
+                .WithOne()
+                .HasForeignKey<Cassette>(c => c.MediaItemId);
+
         }
     }
 }

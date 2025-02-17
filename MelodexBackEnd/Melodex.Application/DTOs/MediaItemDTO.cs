@@ -15,11 +15,9 @@ namespace Melodex.Application.DTOs
         public string Title { get; set; }
         public int ReleaseYear { get; set; }
         public string Genre { get; set; }
-        public MediaFormat Format { get; set; }
+        public int Format { get; set; }
         public string Label { get; set; }
         public string Notes { get; set; }
         public string ImageUrl { get; set; }
-        public List<Track> Tracks { get; set; } = new();
-        public Artist Artist { get; set; } = new();
     }
 }

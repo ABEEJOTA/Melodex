@@ -4,10 +4,13 @@ namespace Melodex.Domain.Models
 {
     public enum TapeType { Normal, Chrome, Metal }
 
-    public class Cassette : MediaItem
+    public class Cassette
     {
-        public TapeType TapeType { get; set; }
-        public string PlayTime { get; set; } // C60, C90, etc.
-        public bool Rewound { get; set; }
+        public Guid Id { get; set; }
+        public Guid MediaItemId { get; set; }
+        public int TapeType { get; set; }
+        public string PlayTime { get; set; }
+
+        public MediaItem MediaItem { get; set; }
     }
 }

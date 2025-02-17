@@ -4,11 +4,13 @@ namespace Melodex.Domain.Models
 {
     public enum CDPackaging { JewelCase, Digipak, Slipcase, Boxset }
 
-    public class CD : MediaItem
+    public class CD
     {
-        public string Edition { get; set; } // Deluxe, Remastered, etc.
-        public bool IsSigned { get; set; }
+        public Guid Id { get; set; }
+        public Guid MediaItemId { get; set; }
         public bool BonusTracks { get; set; }
-        public CDPackaging Packaging { get; set; }
+        public string Packaging { get; set; }
+
+        public MediaItem MediaItem { get; set; }
     }
 }

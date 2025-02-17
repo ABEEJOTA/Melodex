@@ -9,10 +9,11 @@ namespace Melodex.Application.DTOs
 {
     public class VinylDTO : MediaItemDTO
     {
-        public VinylSize Size { get; set; }
-        public VinylSpeed Speed { get; set; }
-        public string Color { get; set; } // Edición especial (rojo, transparente)
-        public bool LimitedEdition { get; set; }
-        public string PressingInfo { get; set; }
+        public Guid Id { get; set; }
+        public Guid MediaItemId { get; set; }
+        public string Edition { get; set; }
+        public bool IsSigned { get; set; }
+
+        public MediaItem MediaItem { get; set; }
     }
 }
