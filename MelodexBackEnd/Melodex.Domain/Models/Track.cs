@@ -19,5 +19,9 @@ namespace Melodex.Domain.Models
         [ForeignKey("MediaItem")]
         public Guid MediaItemId { get; set; }
         public MediaItem MediaItem { get; set; }
+
+        [ForeignKey("PlayList")]
+        public Guid PlayListId { get; set; }
+        public PlayList PlayList { get; set; }
     }
 }

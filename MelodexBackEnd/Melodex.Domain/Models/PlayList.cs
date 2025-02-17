@@ -16,7 +16,7 @@ namespace Melodex.Domain.Models
         public string Name { get; set; }
         public string Duration { get; set; }
         public string Description { get; set; }
-        public List<Track> Tracks { get; set; }
+        public List<Track> Tracks { get; set; } = new List<Track>();
         [ForeignKey("User")]
         public Guid UserId { get; set; }
         public User User { get; set; }

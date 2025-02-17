@@ -21,6 +21,7 @@ namespace Melodex.Domain.Models
         public string Notes { get; set; }
         public string ImageUrl { get; set; }
         public List<Track> Tracks { get; set; } = new();
+
         [ForeignKey("Artist")]
         public Guid ArtistId { get; set; }
         [Required]

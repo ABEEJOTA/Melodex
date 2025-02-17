@@ -3,16 +3,16 @@ import { useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { useTestHook } from './hooks/useTestHook'
+import { useMediaItems } from './hooks/useMediaItems'
 
 function App() {
   const [count, setCount] = useState(0);
-  const [weather, setWeather] = useState(null);
-  const {GetWeather} = useTestHook(setWeather);
+  const [mediaItems, setMediaItems] = useState(null);
+  const {GetMediaItems} = useMediaItems(setMediaItems);
 
   useEffect(()=>{
-    GetWeather();
-    console.log("WEATHER", weather);
+    GetMediaItems();
+    console.log("MEDIA ITEMS", mediaItems);
   },[count])
 
   return (
