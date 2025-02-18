@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Melodex.Infrastructure.Interfaces
 {
-    public interface IMediaItemRepository
+    public interface IVinylRepository
     {
-        public MediaItem Create(MediaItem mediaItem);
+        public Vinyl Create(Vinyl mediaItem);
         public void Delete(int id);
-        public List<MediaItem> GetAll();
-        public MediaItem GetById(int id);
-        public MediaItem Update(int id);
+        public List<Vinyl> GetAll();
+        public Vinyl GetById(int id);
+        public Vinyl Update(int id);
     }
 }

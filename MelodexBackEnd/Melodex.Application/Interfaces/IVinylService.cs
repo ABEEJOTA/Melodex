@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Melodex.Application.Interfaces
 {
-    public interface IMediaItemService
+    public interface IVinylService
     {
-        public List<MediaItemDTO> GetAll();
+        public List<VinylDTO> GetAll();
     }
 }

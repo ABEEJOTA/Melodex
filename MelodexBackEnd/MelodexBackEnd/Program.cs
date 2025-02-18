@@ -11,8 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IMediaItemService, MediaItemService>();
-builder.Services.AddScoped<IMediaItemRepository, MediaItemRepository>();
+builder.Services.AddScoped<IVinylService, VinylService>();
+builder.Services.AddScoped<IVinylRepository, VinylRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -6,11 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Melodex.Domain\Melodex.Domain.csproj" />
 		<ProjectReference Include="..\Melodex.Infrastructure\Melodex.Infrastructure.csproj" />

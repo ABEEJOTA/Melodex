@@ -19,9 +19,6 @@ public class AutoMapperProfile : Profile
         CreateMap<Collection, CollectionDTO>(); // De Modelo a DTO 
         CreateMap<CollectionDTO, Collection>(); // De DTO a Modelo (opcional)
 
-        CreateMap<MediaItem, MediaItemDTO>(); // De Modelo a DTO 
-        CreateMap<MediaItemDTO, MediaItem>(); // De DTO a Modelo (opcional)
-
         CreateMap<PlayList, PlayListDTO>(); // De Modelo a DTO 
         CreateMap<PlayListDTO, PlayList>(); // De DTO a Modelo (opcional)
 

@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace Melodex.Infrastructure.Repositories
 {
-    public class MediaItemRepository : IMediaItemRepository
+    public class VinylRepository : IVinylRepository
     {
         private readonly MelodexDbContext _context;
 
-        public MediaItemRepository(MelodexDbContext context)
+        public VinylRepository(MelodexDbContext context)
         {
             _context = context;
         }
 
-        public MediaItem Create(MediaItem mediaItem)
+        public Vinyl Create(Vinyl mediaItem)
         {
             throw new NotImplementedException();
         }
@@ -29,17 +29,17 @@ namespace Melodex.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public List<MediaItem> GetAll()
+        public List<Vinyl> GetAll()
         {
-            return _context.MediaItems.ToList();
+            return _context.Vinyls.ToList();
         }
 
-        public MediaItem GetById(int id)
+        public Vinyl GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public MediaItem Update(int id)
+        public Vinyl Update(int id)
         {
             throw new NotImplementedException();
         }

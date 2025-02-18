@@ -12,21 +12,21 @@ using Melodex.Infrastructure.Repositories;
 
 namespace Melodex.Application.Services
 {
-    public class MediaItemService : IMediaItemService
+    public class VinylService : IVinylService
     {
         private readonly IMapper _mapper;
-        private readonly IMediaItemRepository _mediaItemRepository;
+        private readonly IVinylRepository _vinylRepository;
 
-        public MediaItemService(IMapper mapper, IMediaItemRepository mediaItemRepository)
+        public VinylService(IMapper mapper, IVinylRepository vinylRepository)
         {
             _mapper = mapper;
-            _mediaItemRepository = mediaItemRepository;
+            _vinylRepository = vinylRepository;
         }
 
-        public List<MediaItemDTO> GetAll()
+        public List<VinylDTO> GetAll()
         {
-            var mediaItems = _mediaItemRepository.GetAll();
-            return _mapper.Map<List<MediaItemDTO>>(mediaItems);
+            var vinyls = _vinylRepository.GetAll();
+            return _mapper.Map<List<VinylDTO>>(vinyls);
         }
     }
 }
