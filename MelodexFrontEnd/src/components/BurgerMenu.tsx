@@ -14,17 +14,17 @@ type MenuItem = {
   };
   
 interface BurgerMenuProps {
-    elements: MenuItem[];
+  menuOptions: MenuItem[];
 }
 
-export default function BurgerMenu ({elements}: BurgerMenuProps) {
+export default function BurgerMenu ({menuOptions}: BurgerMenuProps) {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate();
 
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={()=>setOpen(false)}>
         <List>
-          {elements.map(({ text, path }) => (
+          {menuOptions.map(({ text, path }) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={() => navigate(path)}>
                 <ListItemText primary={text} />
