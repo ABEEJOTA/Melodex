@@ -1,11 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using Melodex.Infrastructure.Data;
+using Melodex.Application.Interfaces;
+using Melodex.Application.Services;
+using Melodex.Infrastructure.Interfaces;
+using Melodex.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IVinylService, VinylService>();
+builder.Services.AddScoped<IVinylRepository, VinylRepository>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

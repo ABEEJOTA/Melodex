@@ -13,5 +13,7 @@ namespace Melodex.Domain.Models
         public string Email { get; set; }
         [Required]
         public string PasswordHash { get; set; }
+
+        public Collection Collection { get; set; }
     }
 }
