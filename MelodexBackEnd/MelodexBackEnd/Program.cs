@@ -1,11 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using Melodex.Infrastructure.Data;
+using Melodex.Application.Interfaces;
+using Melodex.Application.Services;
+using Melodex.Infrastructure.Interfaces;
+using Melodex.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IVinylService, VinylService>();
+builder.Services.AddScoped<IVinylRepository, VinylRepository>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,6 +26,9 @@ builder.Services.AddCors(p => p.AddPolicy("AllowAll", builder =>
 // Configurar PostgreSQL con Entity Framework Core
 builder.Services.AddDbContext<MelodexDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
 
 var app = builder.Build();
 

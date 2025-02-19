@@ -1,10 +1,13 @@
 ﻿using Melodex.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Melodex.Domain.Models
+namespace Melodex.Application.DTOs
 {
-    public enum CDPackaging { JewelCase, Digipak, Slipcase, Boxset }
-
-    public class CD
+    public class VinylDTO
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -13,7 +16,8 @@ namespace Melodex.Domain.Models
         public string Label { get; set; }
         public string Notes { get; set; }
         public string ImageUrl { get; set; }
-        public bool BonusTracks { get; set; }
-        public string Packaging { get; set; }
+        public string Edition { get; set; }
+        public bool IsSigned { get; set; }
+
     }
 }
