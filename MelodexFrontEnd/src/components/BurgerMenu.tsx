@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 type MenuItem = {
     text: string;
@@ -20,17 +21,24 @@ interface BurgerMenuProps {
 export default function BurgerMenu ({menuOptions}: BurgerMenuProps) {
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate();
+    const {logout} = useAuth();
 
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={()=>setOpen(false)}>
         <List>
           {menuOptions.map(({ text, path }) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={() => navigate(path)}>
+              <ListItemButton onClick={() => text=='logout'? logout(): navigate(path)}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
+            
           ))}
+          <ListItem>
+            <ListItemButton onClick={() => logout()}>
+              <ListItemText primary={'Logout'} />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Box>
     );

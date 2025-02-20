@@ -68,5 +68,6 @@ namespace Melodex.Infrastructure.Data
                 .HasForeignKey<Collection>(c => c.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
+
     }
 }

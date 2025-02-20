@@ -6,14 +6,10 @@ namespace Melodex.Domain.Models
     public class User
     {
         [Key]
-        public Guid Id { get; set; }
-        [Required]
-        public string UserName { get; set; }
-        [Required]
-        public string Email { get; set; }
-        [Required]
-        public string PasswordHash { get; set; }
-
-        public Collection Collection { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string? UserName { get; set; }
+        public string? Email { get; set; }
+        public string? PasswordHash { get; set; }
+        public Collection? Collection { get; set; }
     }
 }
