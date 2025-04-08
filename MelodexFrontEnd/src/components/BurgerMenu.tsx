@@ -24,17 +24,17 @@ export default function BurgerMenu ({menuOptions}: BurgerMenuProps) {
     const {logout} = useAuth();
 
     const DrawerList = (
-        <Box sx={{ width: 250 }} role="presentation" onClick={()=>setOpen(false)}>
-        <List>
+      <Box sx={{ width: 250, backgroundColor: 'lightgray', flexDirection:'row !important'}} role="presentation" onClick={()=>setOpen(false)}>
+        <List style={{width: '100%'}}>
           {menuOptions.map(({ text, path }) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={() => text=='logout'? logout(): navigate(path)}>
+              <ListItemButton style={{borderBottom: 'solid 1px black'}} onClick={() => text=='logout'? logout(): navigate(path)}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
             
           ))}
-          <ListItem>
+          <ListItem disablePadding>
             <ListItemButton onClick={() => logout()}>
               <ListItemText primary={'Logout'} />
             </ListItemButton>
@@ -46,7 +46,12 @@ export default function BurgerMenu ({menuOptions}: BurgerMenuProps) {
     return (
         <div style={{ position: 'fixed', top: '10px', left: '10px', zIndex: 1000 }}>
             <Button style={{fontSize: '30px', color: 'white'}} onClick={()=>setOpen(true)}>☰</Button>
-            <Drawer open={open} onClose={()=>setOpen(false)}>
+            <Drawer 
+              PaperProps={{
+                sx: { backgroundColor: 'lightgray' }
+              }} 
+              open={open} onClose={()=>setOpen(false)}
+            >
             {DrawerList}
             </Drawer>
         </div>

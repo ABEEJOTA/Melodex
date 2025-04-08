@@ -1,12 +1,4 @@
-type Vinyl = {
-    id: string,
-    title: string,
-    releaseYear: number,
-    genre: string,
-    label: string,
-    notes: string,
-    imageUrl: URL
-  };
+import { Vinyl } from "../constants/Vinyl";
   
 interface VinylShowCaseProps {
     vinyl: Vinyl;
